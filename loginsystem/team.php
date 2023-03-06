@@ -17,7 +17,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>sports</title>
+    <title>Teams</title>
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
@@ -27,7 +27,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 			<tr>
 				<th>ID</th>
 				<th>Sport</th>
-				<th>No of Players</th>
+				<th>Team Name</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,7 +35,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				include 'partials/_dbconnect.php';
 
 				// Query the database
-				$sql = "SELECT * FROM sports";
+				$sql = "SELECT * FROM teams";
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
@@ -43,9 +43,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				    while($row = mysqli_fetch_assoc($result)) {
               $name = $_SESSION['username'];
               if($row["nit_name"] == $name){
-				        echo "<tr><td>" . $row["serial"] . "</td>
+				        echo "<tr>
+						  <td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
-                          <td>" . $row["no_of_players"] . "</td>
+                          <td>" . $row["team_name"] . "</td>
                        </tr>";
 				    }
           }
@@ -59,7 +60,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 		</tbody>
 	</table>
 
-  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_sport.php'">Add New Sports </button>
+  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_team.php'">Add New Team </button>
     
 
 </body>
