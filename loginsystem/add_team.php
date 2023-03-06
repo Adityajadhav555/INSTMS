@@ -7,14 +7,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_SESSION['username'];
     $sport = $_POST["sport"];
     $team = $_POST["team"];
-    
-        $sql = "INSERT INTO `teams` ( `nit_name`, `sport`, `team_name`) VALUES ('$name', '$sport', $team)";
+
+        $sql = "INSERT INTO `teams` ( `nit_name`, `sport`, `team_name`) VALUES ('$name', '$sport', '$team')";
         $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
         }
 }
-    
+
 ?>
 
 <!doctype html>
@@ -53,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="container my-4">
      <h1 class="text-center">Add new Team</h1>
      <form action="add_team.php" method="post">
-        
+
         <div class="form-group">
             <label for="sport">Enter Sport Name</label>
             <input type="text" class="form-control" id="sport" name="sport">
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="no">Enter Team Name </label>
             <input type="text" class="form-control" id="team" name="team">
         </div>
-         
+
         <button type="submit" class="btn btn-primary">Add Team</button>
      </form>
     </div>
