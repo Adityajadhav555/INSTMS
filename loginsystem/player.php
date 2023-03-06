@@ -17,7 +17,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Teams</title>
+    <title>sports</title>
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
@@ -26,9 +26,11 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Sport</th>
-				<th>Team Name</th>
-				<th>Players</th>
+				<th>Name</th>
+				<th>Age</th>
+                <th>Veg/NonVeg</th>
+                <th>Role in Team</th>
+                
 			</tr>
 		</thead>
 		<tbody>
@@ -36,19 +38,17 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				include 'partials/_dbconnect.php';
 
 				// Query the database
-				$sql = "SELECT * FROM teams";
+				$sql = "SELECT * FROM players";
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-              $name = $_SESSION['username'];
-              if($row["nit_name"] == $name){
-				        echo "<tr>
-						  <td>" . $row["serial"] . "</td>
+              $name = $_SESSION['username'];# I have to add team name and sport name dynamically !!!
+              if($row["nit_name"] == $name  && $row["team_name"] == $name ){
+				        echo "<tr><td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
-                          <td>" . $row["team_name"] . "</td> 
-						  <td> <a href= '/INSTMS/loginsystem/player.php'> Manage Players </a> </td> 
+                          <td>" . $row["no_of_players"] . "</td>
                        </tr>";
 				    }
           }
@@ -62,7 +62,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 		</tbody>
 	</table>
 
-  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_team.php'">Add New Team </button>
+  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_sport.php'">Add New Sports </button>
     
 
 </body>
