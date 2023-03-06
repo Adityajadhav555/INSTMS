@@ -8,7 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $sport = $_POST["sport"];
     $no = $_POST["no"];
     
-        $sql = "INSERT INTO `sports` ( `nit_name`, `sport`, `no_of_players`) VALUES ('$name', '$sport', $no)";
+        $sql = "INSERT INTO `sports` ( `nit_name`, `sport`, `no_of_players`) VALUES ('$name', '$sport', '$no')";
         $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
