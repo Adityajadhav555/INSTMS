@@ -35,19 +35,19 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				include 'partials/_dbconnect.php';
 
 				// Query the database
-				$sql = "SELECT * FROM sports";
+				$name = $_SESSION['username'];
+				$sql = "SELECT * FROM `sports` where `nit_name` = '$name'";
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-              $name = $_SESSION['username'];
-              if($row["nit_name"] == $name){
+              
 				        echo "<tr><td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
                           <td>" . $row["no_of_players"] . "</td>
                        </tr>";
-				    }
+				    
           }
 				} else {
 				    echo "0 results";
