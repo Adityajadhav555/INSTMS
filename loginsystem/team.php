@@ -36,21 +36,26 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				include 'partials/_dbconnect.php';
 
 				// Query the database
-				$sql = "SELECT * FROM teams";
+				$name = $_SESSION['username'];
+				$sql = "SELECT * FROM `teams` where `nit_name` = '$name'";
+				
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-              $name = $_SESSION['username'];
-              if($row["nit_name"] == $name){
+						
+						$_SESSION['sport'] = $row["sport"];
+						$_SESSION['team'] = $row["team_name"];
+						  
 				        echo "<tr>
 						  <td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
-                          <td>" . $row["team_name"] . "</td> 
-						  <td> <a href= '/INSTMS/loginsystem/player.php'> Manage Players </a> </td> 
+                          <td>" . $row["team_name"] . "</td> 					  
+						  <td> <a href= '/INSTMS/loginsystem/player.php?' > Manage Players </a> </td> 
                        </tr>";
-				    }
+					   
+				    
           }
 				} else {
 				    echo "0 results";

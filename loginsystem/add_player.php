@@ -12,18 +12,25 @@ $showAlert = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include 'partials/_dbconnect.php';
-    session_start();
-    $name = $_SESSION['username'];
-    $sport = $_POST["sport"];
-    $team = $_POST["team"];
 
-        $sql = "INSERT INTO `teams` ( `nit_name`, `sport`, `team_name`) VALUES ('$name', '$sport', '$team')";
+    $name = $_SESSION['username'];
+    $sport = $_SESSION['sport'];
+    $team = $_SESSION['team'];
+    
+    $player_name = $_POST["name"];
+    $age = $_POST["age"];
+    $food = $_POST["food"];
+    $role = $_POST["role"];
+    
+        $sql = "INSERT INTO `players` ( `nit_name`, `sport`, `team_name`,`Name`.`age`,`food`,`role`) 
+                                VALUES ('$name', '$sport', '$team','$player_name',$age,'$food','$role')";
+
         $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
         }
 }
-
+    
 ?>
 
 <!doctype html>
@@ -36,14 +43,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Add Team</title>
+    <title>Manage Player</title>
   </head>
   <body>
     <?php require 'partials/_nav.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Your Team is Added ||
+        <strong>Success!</strong> Your Player is Added ||
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -60,19 +67,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     ?>
 
     <div class="container my-4">
-     <h1 class="text-center">Add new Team</h1>
-     <form action="add_team.php" method="post">
-
+     <h1 class="text-center">Add new Player</h1>
+     <form action="add_player.php", method="post">
+        
         <div class="form-group">
-            <label for="sport">Enter Sport Name</label>
-            <input type="text" class="form-control" id="sport" name="sport">
+            <label for="name">Enter Player Name</label>
+            <input type="text" class="form-control" id="name" name="name">
         </div>
         <div class="form-group">
-            <label for="no">Enter Team Name </label>
-            <input type="text" class="form-control" id="team" name="team">
+            <label for="age">Enter Player's Age </label>
+            <input type="number" class="form-control" id="age" name="age">
+        </div>
+        
+        <div class="form-group">
+        <label for="food">Food Preference:</label>
+                <select id="food" name="food">
+                    <option value="Veg">Veg</option>
+                    <option value="Non Veg">Non Veg</option>
+                    <option value="Vegan">Vegan</option>
+                </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Add Team</button>
+        <div class="form-group">
+            <label for="role">Enter Player's Role in the Team [eg - captain, VC] </label>
+            <input type="text" class="form-control" id="role" name="role">
+        </div>
+
+         <center>
+        <button type="submit" class="btn btn-primary">Add Player</button></center>
      </form>
     </div>
 
