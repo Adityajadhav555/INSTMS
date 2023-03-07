@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     ?>
 
     <div class="container my-4">
-     <h1 class="text-center">Add new Sport</h1>
+     <h1 class="text-center">Add new Sport NOW</h1>
      <form action="add_sport.php" method="post">
         
         <div class="form-group">
