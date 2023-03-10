@@ -45,17 +45,17 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
 						
-						$_SESSION['sport'] = $row["sport"];
-						$_SESSION['team'] = $row["team_name"];
 						  
 				        echo "<tr>
 						  <td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
-                          <td>" . $row["team_name"] . "</td> 					  
-						  <td> <a href= '/INSTMS/loginsystem/player.php?' > Manage Players </a> </td> 
+                          <td>" . $row["team_name"] . "</td> 	 
+						  <td> <a href= '/INSTMS/loginsystem/player.php?sport =".$row["sport"]." & team =".$row["team_name"]."' > Manage Players </a> </td> 
                        </tr>";
-					   
-				    
+					   //here in this section the issue is there, we have used link to transfer varibles from
+					   //webpage team to webpage players, but ther is something which i am missing so it is causign a issue.
+					   //please try to rectify
+					   //contd reading player.php line no. 48
           }
 				} else {
 				    echo "0 results";

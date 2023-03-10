@@ -10,7 +10,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include 'partials/_dbconnect.php';
-    session_start();
     $name = $_SESSION['username'];
     $sport = $_POST["sport"];
     $no = $_POST["no"];

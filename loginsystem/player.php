@@ -43,8 +43,11 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				include 'partials/_dbconnect.php';
         
         $name = $_SESSION['username'];
-        $sport = $_SESSION['sport'];
-        $team = $_SESSION['team'];
+        $sport = $_GET['sport'];
+				$team = $_GET['team'];
+				//here this two variables $sport and $team are used to capture the values from the url from team page
+        //but they are not getting captured also while running in browser you might see in the url values are calculated with some
+        //additional %20 like info, rectify if that is causing any issue cause few days back it was not there..
         
 				// Query the database
       

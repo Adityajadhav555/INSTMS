@@ -16,14 +16,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_SESSION['username'];
     $sport = $_SESSION['sport'];
     $team = $_SESSION['team'];
-    
+
     $player_name = $_POST["name"];
     $age = $_POST["age"];
     $food = $_POST["food"];
     $role = $_POST["role"];
     
         $sql = "INSERT INTO `players` ( `nit_name`, `sport`, `team_name`,`Name`.`age`,`food`,`role`) 
-                                VALUES ('$name', '$sport', '$team','$player_name',$age,'$food','$role')";
+                                VALUES ('$name', '$sport', '$team','$player_name','$age','$food','$role')";
 
         $result = mysqli_query($conn, $sql);
         if ($result){
