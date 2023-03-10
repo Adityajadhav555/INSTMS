@@ -1,9 +1,18 @@
 <?php
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+    header("location: login.php");
+    exit;
+}?>
+
+
+<?php
 $showAlert = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include 'partials/_dbconnect.php';
-    session_start();
+    
     $name = $_SESSION['username'];
     $sport = $_POST["sport"];
     $team = $_POST["team"];

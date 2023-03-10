@@ -7,6 +7,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 }
 
 ?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -28,29 +30,42 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				<th>ID</th>
 				<th>Name</th>
 				<th>Age</th>
-                <th>Veg/NonVeg</th>
-                <th>Role in Team</th>
+        <th>Veg/NonVeg</th>
+        <th>Role in Team</th>
                 
 			</tr>
 		</thead>
 		<tbody>
-			<?php
-				include 'partials/_dbconnect.php';
 
+    
+   
+			<?php     
+				include 'partials/_dbconnect.php';
+        
+        $name = $_SESSION['username'];
+        $sport = $_GET['sport'];
+				$team = $_GET['team'];
+				//here this two variables $sport and $team are used to capture the values from the url from team page
+        //but they are not getting captured also while running in browser you might see in the url values are calculated with some
+        //additional %20 like info, rectify if that is causing any issue cause few days back it was not there..
+        
 				// Query the database
-				$sql = "SELECT * FROM players";
+      
+				$sql = "SELECT * FROM `players` where `nit_name`='$name' AND `sport`= '$sport' AND `team_name`= '$team'" ;
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-              $name = $_SESSION['username'];# I have to add team name and sport name dynamically !!!
-              if($row["nit_name"] == $name  && $row["team_name"] == $name ){
-				        echo "<tr><td>" . $row["serial"] . "</td>
-                          <td>" . $row["sport"] . "</td>
-                          <td>" . $row["no_of_players"] . "</td>
+              
+  			        echo "<tr>
+                          <td>" . $row["serial"] . "</td>
+                          <td>" . $row["Name"] . "</td>
+                          <td>" . $row["age"] . "</td>
+                          <td>" . $row["food"] . "</td>
+                          <td>" . $row["role"] . "</td>
                        </tr>";
-				    }
+				    
           }
 				} else {
 				    echo "0 results";
@@ -59,10 +74,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				// Close the connection
 				mysqli_close($conn);
 			?>
+    
+    
 		</tbody>
 	</table>
 
-  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_sport.php'">Add New Sports </button>
+  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_player.php'">Add New Player </button>
     
 
 </body>
@@ -75,5 +92,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
   </body>
 </html>

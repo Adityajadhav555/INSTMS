@@ -36,21 +36,26 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				include 'partials/_dbconnect.php';
 
 				// Query the database
-				$sql = "SELECT * FROM teams";
+				$name = $_SESSION['username'];
+				$sql = "SELECT * FROM `teams` where `nit_name` = '$name'";
+				
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-              $name = $_SESSION['username'];
-              if($row["nit_name"] == $name){
+						
+						  
 				        echo "<tr>
 						  <td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
-                          <td>" . $row["team_name"] . "</td> 
-						  <td> <a href= '/INSTMS/loginsystem/player.php'> Manage Players </a> </td> 
+                          <td>" . $row["team_name"] . "</td> 	 
+						  <td> <a href= '/INSTMS/loginsystem/player.php?sport =".$row["sport"]." & team =".$row["team_name"]."' > Manage Players </a> </td> 
                        </tr>";
-				    }
+					   //here in this section the issue is there, we have used link to transfer varibles from
+					   //webpage team to webpage players, but ther is something which i am missing so it is causign a issue.
+					   //please try to rectify
+					   //contd reading player.php line no. 48
           }
 				} else {
 				    echo "0 results";
