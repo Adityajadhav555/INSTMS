@@ -14,7 +14,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/INSTMS/loginsystem/admin_dash.php">Home <span class="sr-only">(current)</span></a>
+        
       </li>';
 
       if(!$loggedin){
@@ -31,7 +31,7 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="nav-link" href="/INSTMS/loginsystem/logout.php">Logout</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/INSTMS/loginsystem/signup.php">Register User</a>
+        <a class="nav-link" href="/INSTMS/loginsystem/signup.php">Register NIT</a>
       </li>';
     }
        
