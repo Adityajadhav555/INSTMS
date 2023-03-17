@@ -50,7 +50,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 						  <td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
                           <td>" . $row["team_name"] . "</td> 	 
-						  <td> <a href= '/INSTMS/loginsystem/player.php?sport =".$row["sport"]." & team =".$row["team_name"]."' > Manage Players </a> </td> 
+						  <td> <a href= '/INSTMS/loginsystem/player.php?sport=".$row["sport"]."&team=".$row["team_name"]."' > Manage Players </a> </td> 
                        </tr>";
 					   //here in this section the issue is there, we have used link to transfer varibles from
 					   //webpage team to webpage players, but ther is something which i am missing so it is causign a issue.
