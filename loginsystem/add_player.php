@@ -22,7 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $food = $_POST["food"];
     $role = $_POST["role"];
     
-        $sql = "INSERT INTO `players` ( `nit_name`, `sport`, `team_name`,`Name`.`age`,`food`,`role`) 
+        $sql = "INSERT INTO `players`( `nit_name`, `sport`, `team_name`,`Name`,`age`,`food`,`role`) 
                                 VALUES ('$name', '$sport', '$team','$player_name','$age','$food','$role')";
 
         $result = mysqli_query($conn, $sql);
@@ -47,24 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <?php require 'partials/_nav.php' ?>
-    <?php
-    if($showAlert){
-    echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Your Player is Added ||
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div> ';
-    }
-    if($showError){
-    echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> '. $showError.'
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div> ';
-    }
-    ?>
+    
 
     <div class="container my-4">
      <h1 class="text-center">Add new Player</h1>

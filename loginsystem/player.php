@@ -45,9 +45,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
         $name = $_SESSION['username'];
         $sport = $_GET['sport'];
 				$team = $_GET['team'];
-				//here this two variables $sport and $team are used to capture the values from the url from team page
-        //but they are not getting captured also while running in browser you might see in the url values are calculated with some
-        //additional %20 like info, rectify if that is causing any issue cause few days back it was not there..
+        $_SESSION['sport'] = $sport;
+        $_SESSION['team'] = $team;
+				echo"Showing Results for players of $name of $sport from team $team :";
         
 				// Query the database
       
@@ -56,6 +56,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
+           
 				    while($row = mysqli_fetch_assoc($result)) {
               
   			        echo "<tr>
@@ -79,7 +80,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 		</tbody>
 	</table>
 
-  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_player.php'">Add New Player </button>
+  <button type="button" class="btn btn-primary btn-lg" 
+  onclick= "window.location.href = '/INSTMS/loginsystem/add_player.php'">Add New Player </button>
     
 
 </body>
