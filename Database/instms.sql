@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2023 at 05:39 PM
+-- Generation Time: Mar 17, 2023 at 06:26 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,11 +31,20 @@ CREATE TABLE `players` (
   `serial` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `age` int(11) NOT NULL,
-  `food` int(15) NOT NULL,
-  `nit_name` int(25) NOT NULL,
-  `sport` int(25) NOT NULL,
-  `role` int(25) NOT NULL
+  `food` varchar(15) NOT NULL,
+  `nit_name` varchar(25) NOT NULL,
+  `sport` varchar(30) NOT NULL,
+  `team_name` varchar(30) DEFAULT NULL,
+  `role` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `players`
+--
+
+INSERT INTO `players` (`serial`, `Name`, `age`, `food`, `nit_name`, `sport`, `team_name`, `role`) VALUES
+(1, 'Sashank', 23, 'Non Veg', 'nitc', 'cricket', 'alpha', 'Captain'),
+(2, 'Sushal', 21, 'Non Veg', 'nitc', 'ss', 'ss', 'Defence');
 
 -- --------------------------------------------------------
 
@@ -74,7 +83,8 @@ INSERT INTO `sports` (`serial`, `nit_name`, `sport`, `no_of_players`) VALUES
 (4, 'nitc', 'Swimming', 1),
 (5, 'nits', 'cricket', 12),
 (6, 'nitc', 'Badmintan solo', 1),
-(7, 'nitc', 'badminatan duo', 2);
+(7, 'nitc', 'badminatan duo', 2),
+(8, 'nitc', 'swimming', 1);
 
 -- --------------------------------------------------------
 
@@ -94,7 +104,8 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`serial`, `nit_name`, `sport`, `team_name`) VALUES
-(1, 'nitc', 'cricket', 'Alpha');
+(1, 'nitc', 'cricket', 'Alpha'),
+(2, 'nitc', 'ss', 'ss');
 
 -- --------------------------------------------------------
 
@@ -187,19 +198,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sports`
 --
 ALTER TABLE `sports`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

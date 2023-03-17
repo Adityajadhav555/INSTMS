@@ -21,8 +21,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $age = $_POST["age"];
     $food = $_POST["food"];
     $role = $_POST["role"];
-    
-        $sql = "INSERT INTO `players`( `nit_name`, `sport`, `team_name`,`Name`,`age`,`food`,`role`) 
+
+        $sql = "INSERT INTO `players`( `nit_name`, `sport`, `team_name`,`Name`,`age`,`food`,`role`)
                                 VALUES ('$name', '$sport', '$team','$player_name','$age','$food','$role')";
 
         $result = mysqli_query($conn, $sql);
@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $showAlert = true;
         }
 }
-    
+
 ?>
 
 <!doctype html>
@@ -47,12 +47,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <?php require 'partials/_nav.php' ?>
-    
+
 
     <div class="container my-4">
      <h1 class="text-center">Add new Player</h1>
      <form action="add_player.php", method="post">
-        
+
         <div class="form-group">
             <label for="name">Enter Player Name</label>
             <input type="text" class="form-control" id="name" name="name">
@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="age">Enter Player's Age </label>
             <input type="number" class="form-control" id="age" name="age">
         </div>
-        
+
         <div class="form-group">
         <label for="food">Food Preference:</label>
                 <select id="food" name="food">
