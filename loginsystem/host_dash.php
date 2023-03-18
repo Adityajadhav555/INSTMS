@@ -24,40 +24,24 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     
   <div>
     <center>
-<<<<<<< Updated upstream
     <h1>Host Dashboard</h1>
 
     <div>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/declare_tour.php'">Declare Tournament</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Team Registered for Tournament</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Accomodation</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Food</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Results</button>
-=======
-    <h1>Welcome Host, You are the Organizing NIT for this tournament so you are here .</h1>
-
-    <div>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/declare_tour.php'">Declare Tournament</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" 
-    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Sports </button>
+    onclick= "window.location.href = '/INSTMS/loginsystem/reg_teams.php'">Team Registered for Tournament</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" 
-    onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Teams</button>
+    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Accomodation</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" 
-    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Register For Tournament</button>
+    onclick= "window.location.href = '/INSTMS/loginsystem/food_details.php'">Food</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" 
-    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Upcoming Tournaments</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" 
-    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Food And Accomdation</button>
->>>>>>> Stashed changes
+    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Results</button>
 
     </div>
 </center>
