@@ -1,7 +1,6 @@
 
 <?php
 session_start();
-
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     header("location: login.php");
     exit;
@@ -18,7 +17,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Welcome - <?php $_SESSION['username']?></title>
+    <title>Welcome - <?php echo $_SESSION['username']?></title>
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
@@ -29,17 +28,21 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
     <div>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg">Sports</button><br><br>
-    <button type="button" class="btn btn-primary btn-lg">Participating Teams</button><br><br>
-    <button type="button" class="btn btn-primary btn-lg">Register For Tournament</button><br><br>
-    <button type="button" class="btn btn-primary btn-lg">Upcoming Tournaments</button><br><br>
-    <button type="button" class="btn btn-primary btn-lg">Food And Accomdation</button>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Sports </button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Teams</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Register For Tournament</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/view_tournaments.php'">Upcoming Tournaments</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Food And Accomdation</button>
 
     </div>
 </center>
 </div>
-
-
+    
+    
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
