@@ -1,9 +1,15 @@
 <?php
-$showAlert = false;
-$showError = false;
+session_start();
+
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
+    header("location: login.php");
+    exit;
+}?>
+
+<?php
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include 'partials/_dbconnect.php';
-    session_start();
     $name = $_SESSION['username'];
     $sport = $_POST["sport"];
     $no = $_POST["no"];
@@ -34,7 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Your Sport is Added ||
+        <strong>Success!</strong> Your Player is Added ||
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -50,8 +56,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     ?>
 
+
     <div class="container my-4">
-     <h1 class="text-center">Add new Sport</h1>
+     <h1 class="text-center">Add new Sport NOW</h1>
      <form action="add_sport.php" method="post">
         
         <div class="form-group">
