@@ -28,15 +28,23 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
     <div>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/declare_tour.php'">Declare Tournament</button>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/declare_tour.php'">Declare Tournament</button>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Team Registered for Tournament</button>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/reg_teams.php'">Validate Teams Registered for Tournament</button>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Accomodation</button>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/accomodate.php'">Food & Accomodation Management</button>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Food</button>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/up_result.php'">Upload Results</button>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Results</button>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/accomodate.php'">Food & Accomodation Allotment</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">View Results</button>
 
     </div>
 </center>
