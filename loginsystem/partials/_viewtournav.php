@@ -26,7 +26,12 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       </li>';
       }
       if($loggedin){
-      echo '<li class="nav-item">
+        $name = $_SESSION['username'];
+        echo '<li class="nav-item">
+        <a class="nav-link" href="/INSTMS/loginsystem/'.$name.'_dash.php">Home</a>
+      </li>
+    
+      <li class="nav-item">
         <a class="nav-link" href="/INSTMS/loginsystem/logout.php">Logout</a>
       </li>';
     }
