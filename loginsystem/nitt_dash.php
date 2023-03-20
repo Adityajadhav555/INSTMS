@@ -37,6 +37,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/view_tournaments.php'">Upcoming Tournaments</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Food And Accomdation</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_issue.php'">Team got rejected</button>
 
     </div>
 </center>
