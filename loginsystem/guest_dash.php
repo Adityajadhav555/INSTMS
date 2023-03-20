@@ -1,6 +1,6 @@
+
 <?php
 session_start();
-
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     header("location: login.php");
     exit;
@@ -17,54 +17,32 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Tournaments</title>
+    <title>Welcome - <?php echo $_SESSION['username']?></title>
   </head>
   <body>
-  <?php require 'partials/_viewtournav.php' ?>
-  <table class="table table-striped">
-		<thead>
-			<tr>
-                <th>Id</th>
-				<th>Date</th>
-        <th>Last Date to Register</th>
-				<th>Tournament Name</th>				
-			</tr>
-		</thead>
-		<tbody>
-          <?php
-				include 'partials/_dbconnect.php';
+  <?php require 'partials/_nav.php' ?>
 
-                // Query the database
-				$sql = "SELECT * FROM tournment_declare";
-				$result = mysqli_query($conn, $sql);
+  <div>
+    <center>
+    <h1>Welcome Guest</h1>
 
-                // Loop through the results and output the data in the table
-                if (mysqli_num_rows($result) > 0 ) {
-				    while($row = mysqli_fetch_assoc($result)) {
-              $name = $_SESSION['username'];
-				        echo "<tr><td>" . $row["sno"] . "</td>
-                          <td>" . $row["date"] . "</td>
-                          <td>" . $row["last_date"] . "</td>
-                          <td>" . $row["text"] . "</td>
-                       </tr>";
-				    
-          }
-				}
-                else {
-				    echo "0 results";
-				}
+    <div>
+    <br><br>
+    
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/guest_reg_teams.php'">Registered Teams</button>
+    
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/view_tournaments.php'">Upcoming Tournaments</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_result.php'">Results</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
 
-				// Close the connection
-				mysqli_close($conn);
-			?>
-		</tbody>
-	</table>
-
-    </body>
-
-
-      
-
+    </div>
+</center>
+</div>
+    
+    
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

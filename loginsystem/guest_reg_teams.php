@@ -17,40 +17,49 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Tournaments</title>
+    <title>Teams</title>
   </head>
   <body>
-  <?php require 'partials/_viewtournav.php' ?>
-  <table class="table table-striped">
+  <?php require 'partials/_nav.php' ?>
+    
+	<table class="table table-striped">
 		<thead>
 			<tr>
-                <th>Id</th>
-				<th>Date</th>
-        <th>Last Date to Register</th>
-				<th>Tournament Name</th>				
+				<th>ID</th>
+                <th>NIT Name</th>
+				<th>Sport</th>
+				<th>Team Name</th>
+				<th>Players</th>
 			</tr>
 		</thead>
 		<tbody>
-          <?php
+			<?php
 				include 'partials/_dbconnect.php';
 
-                // Query the database
-				$sql = "SELECT * FROM tournment_declare";
+				// Query the database
+				$name = $_SESSION['username'];
+				$sql = "SELECT * FROM `teams`";
+				
 				$result = mysqli_query($conn, $sql);
 
-                // Loop through the results and output the data in the table
-                if (mysqli_num_rows($result) > 0 ) {
+				// Loop through the results and output the data in the table
+				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-              $name = $_SESSION['username'];
-				        echo "<tr><td>" . $row["sno"] . "</td>
-                          <td>" . $row["date"] . "</td>
-                          <td>" . $row["last_date"] . "</td>
-                          <td>" . $row["text"] . "</td>
+						
+						  
+				        echo "<tr>
+						  <td>" . $row["serial"] . "</td>
+                          <td>" . $row["nit_name"] . "</td>
+                          <td>" . $row["sport"] . "</td>
+                          <td>" . $row["team_name"] . "</td> 	 
+						  <td> <a href= '/INSTMS/loginsystem/guest_reg_players.php?nit=".$row["nit_name"]."&sport=".$row["sport"]."&team=".$row["team_name"]."' > Players </a> </td> 
                        </tr>";
-				    
+					   //here in this section the issue is there, we have used link to transfer varibles from
+					   //webpage team to webpage players, but ther is something which i am missing so it is causign a issue.
+					   //please try to rectify
+					   //contd reading player.php line no. 48
           }
-				}
-                else {
+				} else {
 				    echo "0 results";
 				}
 
@@ -60,7 +69,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 		</tbody>
 	</table>
 
-    </body>
+    
+
+</body>
 
 
       

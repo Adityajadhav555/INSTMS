@@ -41,10 +41,15 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     onclick= "window.location.href = '/INSTMS/loginsystem/up_result.php'">Upload Results</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" 
-    onclick= "window.location.href = '/INSTMS/loginsystem/accomodate.php'">Food & Accomodation Allotment</button>
+    onclick= "window.location.href = '/INSTMS/loginsystem/show_accom.php'">Food & Accomodation Allotment</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" 
-    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">View Results</button>
+    onclick= "window.location.href = '/INSTMS/loginsystem/add_fixture.php'">Upload Fixture</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/show_result.php'">View Results</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
 
     </div>
 </center>

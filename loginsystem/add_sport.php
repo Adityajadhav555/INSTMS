@@ -37,24 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <?php require 'partials/_addsportnav.php' ?>
-    <?php
-    if($showAlert){
-    echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Your Player is Added ||
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div> ';
-    }
-    if($showError){
-    echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> '. $showError.'
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">×</span>
-        </button>
-    </div> ';
-    }
-    ?>
+    
 
 
     <div class="container my-4">

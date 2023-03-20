@@ -7,6 +7,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 }
 
 ?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,50 +19,64 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Tournaments</title>
+    <title>Issues in Team</title>
   </head>
   <body>
-  <?php require 'partials/_viewtournav.php' ?>
-  <table class="table table-striped">
+  <?php require 'partials/_nav.php' ?>
+    
+	<table class="table table-striped">
 		<thead>
 			<tr>
-                <th>Id</th>
-				<th>Date</th>
-        <th>Last Date to Register</th>
-				<th>Tournament Name</th>				
+				<th>ID</th>
+				<th>sport</th>
+				<th>Team</th>
+                <th>Reason of Rejection</th>
+        
+                
 			</tr>
 		</thead>
 		<tbody>
-          <?php
-				include 'partials/_dbconnect.php';
 
-                // Query the database
-				$sql = "SELECT * FROM tournment_declare";
+    
+   
+			<?php     
+				include 'partials/_dbconnect.php';
+        
+                 $name = $_SESSION['username'];
+        
+        
+				// Query the database
+      
+				$sql = "SELECT * FROM `issues` where `nit`='$name'" ;
 				$result = mysqli_query($conn, $sql);
 
-                // Loop through the results and output the data in the table
-                if (mysqli_num_rows($result) > 0 ) {
+				// Loop through the results and output the data in the table
+				if (mysqli_num_rows($result) > 0 ) {
+           
 				    while($row = mysqli_fetch_assoc($result)) {
-              $name = $_SESSION['username'];
-				        echo "<tr><td>" . $row["sno"] . "</td>
-                          <td>" . $row["date"] . "</td>
-                          <td>" . $row["last_date"] . "</td>
-                          <td>" . $row["text"] . "</td>
-                       </tr>";
+              
+  			        echo "<tr>
+                          <td>" . $row["serial"] . "</td>
+                          <td>" . $row["sport"] . "</td>
+                          <td>" . $row["team"] . "</td>
+                          <td>" . $row["issue"] . "</td>
+                          </tr>";
 				    
           }
-				}
-                else {
+				} else {
 				    echo "0 results";
 				}
-
-				// Close the connection
+        		// Close the connection
 				mysqli_close($conn);
-			?>
-		</tbody>
+       ?>
+    
+    
+		
+
 	</table>
 
-    </body>
+
+</body>
 
 
       
@@ -70,5 +86,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    
   </body>
 </html>

@@ -32,6 +32,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 
                 if($username == "nits"){
                     header("location: nits_dash.php");}
+
+                if($username == "guest"){
+                    header("location: guest_dash.php");}
                 
             } 
             else{
