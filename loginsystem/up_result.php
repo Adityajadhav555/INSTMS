@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> The tournament is now Live
+        <strong>Success!</strong> Result Sucessfully published!!
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
