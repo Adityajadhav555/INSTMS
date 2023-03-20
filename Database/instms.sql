@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 02:32 PM
+-- Generation Time: Mar 20, 2023 at 07:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `fixture`
+--
+
+CREATE TABLE `fixture` (
+  `serial` int(11) NOT NULL,
+  `tournament` varchar(20) NOT NULL,
+  `fixture` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `fixture`
+--
+
+INSERT INTO `fixture` (`serial`, `tournament`, `fixture`) VALUES
+(1, 'summer tournament', 'https://imgbox.com/LYKEvL3H');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `food_accom`
 --
 
@@ -34,6 +53,13 @@ CREATE TABLE `food_accom` (
   `accom` text NOT NULL,
   `food` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `food_accom`
+--
+
+INSERT INTO `food_accom` (`serial`, `date`, `nit_name`, `accom`, `food`) VALUES
+(0, '2023-04-24', 'nitc', 'hostel c common room', 'e mess');
 
 -- --------------------------------------------------------
 
@@ -48,6 +74,13 @@ CREATE TABLE `issues` (
   `team` varchar(20) NOT NULL,
   `issue` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `issues`
+--
+
+INSERT INTO `issues` (`serial`, `nit`, `sport`, `team`, `issue`) VALUES
+(0, 'nitc', 'cricket ', 'mtech boys', 'the player aditya is underage');
 
 -- --------------------------------------------------------
 
@@ -71,7 +104,10 @@ CREATE TABLE `players` (
 --
 
 INSERT INTO `players` (`serial`, `Name`, `age`, `food`, `nit_name`, `sport`, `role`, `team_name`) VALUES
-(1, 'Aditya Jadhav', 24, 'veg', 'nitc', 'cricket', 'bowler', 'alpha');
+(1, 'Aditya Jadhav', 24, 'veg', 'nitc', 'cricket', 'bowler', 'alpha'),
+(2, 'ADITYA', 15, 'Non Veg', 'nitc', 'cricket ', 'cap', 'mtech boys'),
+(3, 'anish', 25, 'Veg', 'nitc', 'cricket ', 'chear girl', 'mtech boys'),
+(4, 'aravind', 24, 'Veg', 'nitt', 'cricket', 'cap', 'mtech girls');
 
 -- --------------------------------------------------------
 
@@ -86,6 +122,13 @@ CREATE TABLE `result` (
   `second` varchar(30) NOT NULL,
   `third` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `result`
+--
+
+INSERT INTO `result` (`serial`, `sport`, `winner`, `second`, `third`) VALUES
+(0, 'cricket', 'nitc, mtech boys', 'nits, btech ', 'nitt, team alpha');
 
 -- --------------------------------------------------------
 
@@ -130,7 +173,9 @@ CREATE TABLE `teams` (
 
 INSERT INTO `teams` (`serial`, `nit_name`, `sport`, `team_name`) VALUES
 (1, 'nitc', 'cricket', 'Alpha'),
-(2, 'nitc', 'cricket', 'beta');
+(2, 'nitc', 'cricket', 'beta'),
+(3, 'nitc', 'cricket ', 'mtech boys'),
+(4, 'nitt', 'cricket', 'mtech girls');
 
 -- --------------------------------------------------------
 
@@ -173,6 +218,16 @@ CREATE TABLE `tournment_declare` (
   `last_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tournment_declare`
+--
+
+INSERT INTO `tournment_declare` (`sno`, `date`, `text`, `last_date`) VALUES
+(0, '2023-04-25', 'cricket tournamnet inter nit summer championship', '2023-04-15'),
+(0, '2023-03-30', 'Super 4 Tournament', '2023-03-22'),
+(0, '0000-00-00', 'https://imgbox.com/LYKEvL3H', '0000-00-00'),
+(0, '0000-00-00', 'https://imgbox.com/LYKEvL3H', '0000-00-00');
+
 -- --------------------------------------------------------
 
 --
@@ -204,6 +259,12 @@ INSERT INTO `users` (`sno`, `username`, `password`, `dt`) VALUES
 --
 
 --
+-- Indexes for table `fixture`
+--
+ALTER TABLE `fixture`
+  ADD PRIMARY KEY (`serial`);
+
+--
 -- Indexes for table `players`
 --
 ALTER TABLE `players`
@@ -233,10 +294,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `fixture`
+--
+ALTER TABLE `fixture`
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sports`
@@ -248,7 +315,7 @@ ALTER TABLE `sports`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

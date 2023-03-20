@@ -44,7 +44,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     onclick= "window.location.href = '/INSTMS/loginsystem/show_accom.php'">Food & Accomodation Allotment</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/add_fixture.php'">Upload Fixture</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
     onclick= "window.location.href = '/INSTMS/loginsystem/show_result.php'">View Results</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
 
     </div>
 </center>
