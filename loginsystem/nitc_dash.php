@@ -30,15 +30,16 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Sports </button>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Teams</button>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Register Teams for Tournament</button>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Register For Tournament</button>
-    <br><br>
+    
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/view_tournaments.php'">Upcoming Tournaments</button>
     <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Food And Accomdation</button>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/nit_accom.php'">Food And Accomdation</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_issue.php'">Team got rejected</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
 
 
     </div>
