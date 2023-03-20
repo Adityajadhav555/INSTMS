@@ -1,30 +1,32 @@
+
 <?php
+
 session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     header("location: login.php");
     exit;
-}?>
-
-
-<?php
+}
 $showAlert = false;
 $showError = false;
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
     include 'partials/_dbconnect.php';
-    
-    $name = $_SESSION['username'];
     $sport = $_POST["sport"];
-    $team = $_POST["team"];
-
-        $sql = "INSERT INTO `teams` ( `nit_name`, `sport`, `team_name`) VALUES ('$name', '$sport', '$team')";
-        $result = mysqli_query($conn, $sql);
+    $winner= $_POST["winner"];
+    $second = $_POST["second"];
+    $third= $_POST["third"];
+    $sql = "INSERT INTO `result` ( `sport`, `winner`,`second`,`third`) VALUES ('$sport','$winner','$second','$third')";
+    $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
         }
-}
+    }
+    
+
 
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -36,14 +38,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Add Team</title>
+    <title>Upload Results</title>
   </head>
   <body>
-    <?php require 'partials/_addteamnav.php' ?>
+    <?php require 'partials/_navhost.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Your Team is Added ||
+        <strong>Success!</strong> The tournament is now Live
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -51,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     if($showError){
     echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> '. $showError.'
+        <strong>Some Error occured with query</strong> '. $showError.'
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -59,22 +61,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     ?>
 
+
     <div class="container my-4">
-     <h1 class="text-center">Add new Team</h1>
-     <form action="add_team.php" method="post">
+     <h1 class="text-center">Add New Result</h1>
+     <form action="accomodate.php" method="post">
+     <div class="form-group">
+        <label for="sport">Enter the sport name</label>
+         <input type="text" id="sport" name="sport" class="form-control">
+     </div>
+     
+     <div class="form-group">
+        <label for="winner">Enter Winner nit name along with Team name :</label>
+         <input type="text" id="winner" name="winner" class="form-control">
+     </div>
 
-        <div class="form-group">
-            <label for="sport">Enter Sport Name</label>
-            <input type="text" class="form-control" id="sport" name="sport">
-        </div>
-        <div class="form-group">
-            <label for="no">Enter Team Name </label>
-            <input type="text" class="form-control" id="team" name="team">
-        </div>
+     <div class="form-group">
+        <label for="second">Enter Runner up nit name along with Team name :</label>
+         <input type="text" id="second" name="second" class="form-control">
+     </div>
 
-        <button type="submit" class="btn btn-primary">Add Team</button>
+     <div class="form-group">
+        <label for="third">Enter Second Runner up nit name along with Team name :</label>
+         <input type="text" id="third" name="third" class="form-control">
+     </div>
+
+     
+     
+         
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
      </form>
-    </div>
+     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

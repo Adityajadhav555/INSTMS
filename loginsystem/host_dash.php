@@ -20,16 +20,35 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <title>Welcome - <?php $_SESSION['username']?></title>
   </head>
   <body>
-  <?php require 'partials/_nav.php' ?>
+  <?php require 'partials/_navhost.php' ?>
     
-    <div class="container my-3">
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Welcome - <?php echo $_SESSION['username']?></h4>
-      <p>Hey how are you doing? Welcome to iSecure. You are logged in as <?php echo $_SESSION['username']?>. Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-      <hr>
-      <p class="mb-0">Whenever you need to, be sure to logout <a href="/loginsystem/logout.php"> using this link.</a></p>
+  <div>
+    <center>
+    <h1>Host Dashboard</h1>
+
+    <div>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/declare_tour.php'">Declare Tournament</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/reg_teams.php'">Validate Teams Registered for Tournament</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/accomodate.php'">Food & Accomodation Management</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/up_result.php'">Upload Results</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/accomodate.php'">Food & Accomodation Allotment</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" 
+    onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">View Results</button>
+
     </div>
-  </div>
+</center>
+</div>
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

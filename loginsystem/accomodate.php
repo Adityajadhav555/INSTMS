@@ -1,30 +1,32 @@
+
 <?php
+
 session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     header("location: login.php");
     exit;
-}?>
-
-
-<?php
+}
 $showAlert = false;
 $showError = false;
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
     include 'partials/_dbconnect.php';
-    
-    $name = $_SESSION['username'];
-    $sport = $_POST["sport"];
-    $team = $_POST["team"];
-
-        $sql = "INSERT INTO `teams` ( `nit_name`, `sport`, `team_name`) VALUES ('$name', '$sport', '$team')";
-        $result = mysqli_query($conn, $sql);
+    $date = $_POST["date"];
+    $accom= $_POST["accom"];
+    $food = $_POST["food"];
+    $nit= $_POST["nit"];
+    $sql = "INSERT INTO `food_accom` ( `date`, `nit_name`,`accom`,`food`) VALUES ('$date','$nit','$accom','$food')";
+    $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
         }
-}
+    }
+    
+
 
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -36,14 +38,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>Add Team</title>
+    <title>Declare Tournament</title>
   </head>
   <body>
-    <?php require 'partials/_addteamnav.php' ?>
+    <?php require 'partials/_navhost.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Your Team is Added ||
+        <strong>Success!</strong> The tournament is now Live
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -51,7 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     if($showError){
     echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <strong>Error!</strong> '. $showError.'
+        <strong>Some Error occured with query</strong> '. $showError.'
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">×</span>
         </button>
@@ -59,22 +61,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     ?>
 
+
     <div class="container my-4">
-     <h1 class="text-center">Add new Team</h1>
-     <form action="add_team.php" method="post">
+     <h1 class="text-center">Food And Accomdation Management</h1>
+     <form action="accomodate.php" method="post">
+     <div class="form-group">
+        <label for="date">Enter the date of Reporting</label>
+         <input type="date" id="date" name="date" class="form-control">
+     </div>
 
-        <div class="form-group">
-            <label for="sport">Enter Sport Name</label>
-            <input type="text" class="form-control" id="sport" name="sport">
-        </div>
-        <div class="form-group">
-            <label for="no">Enter Team Name </label>
-            <input type="text" class="form-control" id="team" name="team">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Add Team</button>
-     </form>
+     <div class="form-group">
+            <label for="nit">Enter Name of NIT</label>
+            <input type="text" class="form-control" id="nit" name="nit">
     </div>
+
+       <div class="form-group">
+         <label for="text">Enter the details of Accomdation</label>
+         <textarea class="form-control" id="accom" name="accom" rows="3"></textarea>
+      </div>
+
+      <div class="form-group">
+         <label for="text">Enter the details of Food Management</label>
+         <textarea class="form-control" id="food" name="food" rows="2"></textarea>
+      </div>
+         
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+     </form>
+     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

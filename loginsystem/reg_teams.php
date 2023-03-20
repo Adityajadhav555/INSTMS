@@ -17,7 +17,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-    <title>sports</title>
+    <title>Teams</title>
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
@@ -26,8 +26,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 		<thead>
 			<tr>
 				<th>ID</th>
+                <th>NIT Name</th>
 				<th>Sport</th>
-				<th>No of Players</th>
+				<th>Team Name</th>
+				<th>Players</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,18 +38,26 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
 				// Query the database
 				$name = $_SESSION['username'];
-				$sql = "SELECT * FROM `sports` where `nit_name` = '$name'";
+				$sql = "SELECT * FROM `teams`";
+				
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-              
-				        echo "<tr><td>" . $row["serial"] . "</td>
+						
+						  
+				        echo "<tr>
+						  <td>" . $row["serial"] . "</td>
+                          <td>" . $row["nit_name"] . "</td>
                           <td>" . $row["sport"] . "</td>
-                          <td>" . $row["no_of_players"] . "</td>
+                          <td>" . $row["team_name"] . "</td> 	 
+						  <td> <a href= '/INSTMS/loginsystem/reg_players.php?nit=".$row["nit_name"]."&sport=".$row["sport"]."&team=".$row["team_name"]."' > Players </a> </td> 
                        </tr>";
-				    
+					   //here in this section the issue is there, we have used link to transfer varibles from
+					   //webpage team to webpage players, but ther is something which i am missing so it is causign a issue.
+					   //please try to rectify
+					   //contd reading player.php line no. 48
           }
 				} else {
 				    echo "0 results";
@@ -59,7 +69,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 		</tbody>
 	</table>
 
-  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_sport.php'">Add New Sports </button>
     
 
 </body>
