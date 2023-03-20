@@ -14,7 +14,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     include 'partials/_dbconnect.php';
     $tournamentDate = $_POST["tournamentDate"];
     $text= $_POST["text"];
-    $sql = "INSERT INTO `tournment_declare` ( `date`, `text`) VALUES ('$tournamentDate', '$text')";
+    $last = $_POST["last_date"];
+    $sql = "INSERT INTO `tournment_declare` ( `date`, `text`,`last_date`) VALUES ('$tournamentDate', '$text','$last')";
     $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
@@ -71,6 +72,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
          <label for="text">Enter the details of tournament</label>
          <textarea class="form-control" id="text" name="text" rows="3"></textarea>
       </div>
+
+      <div class="form-group">
+        <label for="tournamentDate">Enter the Last date to Register for tournament</label>
+         <input type="date" id="last_date" name="last_date" class="form-control">
+     </div>
          
         <button type="submit" class="btn btn-primary">Declare</button>
      </form>

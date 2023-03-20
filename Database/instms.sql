@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2023 at 05:39 PM
+-- Generation Time: Mar 20, 2023 at 02:32 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `food_accom`
+--
+
+CREATE TABLE `food_accom` (
+  `serial` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `nit_name` varchar(20) NOT NULL,
+  `accom` text NOT NULL,
+  `food` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `issues`
+--
+
+CREATE TABLE `issues` (
+  `serial` int(11) NOT NULL,
+  `nit` varchar(20) NOT NULL,
+  `sport` varchar(20) NOT NULL,
+  `team` varchar(20) NOT NULL,
+  `issue` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `players`
 --
 
@@ -31,25 +59,32 @@ CREATE TABLE `players` (
   `serial` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `age` int(11) NOT NULL,
-  `food` int(15) NOT NULL,
-  `nit_name` int(25) NOT NULL,
-  `sport` int(25) NOT NULL,
-  `role` int(25) NOT NULL
+  `food` varchar(15) NOT NULL,
+  `nit_name` varchar(25) NOT NULL,
+  `sport` varchar(25) NOT NULL,
+  `role` varchar(25) NOT NULL,
+  `team_name` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `players`
+--
+
+INSERT INTO `players` (`serial`, `Name`, `age`, `food`, `nit_name`, `sport`, `role`, `team_name`) VALUES
+(1, 'Aditya Jadhav', 24, 'veg', 'nitc', 'cricket', 'bowler', 'alpha');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `results`
+-- Table structure for table `result`
 --
 
-CREATE TABLE `results` (
+CREATE TABLE `result` (
   `serial` int(11) NOT NULL,
-  `name_of_sport` varchar(25) NOT NULL,
-  `nit` varchar(20) NOT NULL,
-  `team` varchar(25) NOT NULL,
-  `rank` int(11) NOT NULL,
-  `place` varchar(30) NOT NULL
+  `sport` varchar(20) NOT NULL,
+  `winner` varchar(30) NOT NULL,
+  `second` varchar(30) NOT NULL,
+  `third` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -94,7 +129,8 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`serial`, `nit_name`, `sport`, `team_name`) VALUES
-(1, 'nitc', 'cricket', 'Alpha');
+(1, 'nitc', 'cricket', 'Alpha'),
+(2, 'nitc', 'cricket', 'beta');
 
 -- --------------------------------------------------------
 
@@ -122,6 +158,19 @@ CREATE TABLE `tournaments` (
   `host` varchar(25) NOT NULL,
   `start` date NOT NULL,
   `end` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tournment_declare`
+--
+
+CREATE TABLE `tournment_declare` (
+  `sno` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `text` text NOT NULL,
+  `last_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -187,7 +236,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sports`
@@ -199,7 +248,7 @@ ALTER TABLE `sports`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

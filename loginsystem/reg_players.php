@@ -44,7 +44,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
         
         $name = $_GET['nit'];
         $sport = $_GET['sport'];
-		$team = $_GET['team'];
+		    $team = $_GET['team'];
+        $_SESSION['sport'] = $sport;
+        $_SESSION['team'] = $team;
+        $_SESSION['nit']= $name;
         		echo"Showing Registered players of $name of $sport from team $team :";
         
 				// Query the database
@@ -69,18 +72,17 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				} else {
 				    echo "0 results";
 				}
-
-				// Close the connection
+        // Close the connection
 				mysqli_close($conn);
-			?>
+       ?>
     
     
-		</tbody>
+		
+
 	</table>
 
+  <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/issue.php'">Raise Issue Regarding Team</button>
   
-    
-
 </body>
 
 
