@@ -39,12 +39,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Add Team</title>
   </head>
   <body>
-<<<<<<< Updated upstream
-    <?php require 'partials/_nav.php' ?>
-=======
     <?php require 'partials/_addteamnav.php' ?>
     <?php require 'partials/_footer.php' ?>
->>>>>>> Stashed changes
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">

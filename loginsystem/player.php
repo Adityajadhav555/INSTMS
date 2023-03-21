@@ -55,17 +55,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				echo"Showing Results for players of $name of $sport from team $team :";
 
 				// Query the database
-<<<<<<< Updated upstream
-//AND `team_name`= '$team'
-        //CHANGE 3: Added A new column: team_name to the relation players...
-        //Which solved 90% of the problems....
-
-
-				$sql = "SELECT * FROM `players` where `nit_name`='$name' AND `sport`= '$sport'AND `team_name`= '$team'" ;
-=======
 
 				$sql = "SELECT * FROM `players` where `nit_name`='$name' AND `sport`= '$sport' AND `team_name`= '$team'" ;
->>>>>>> Stashed changes
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table

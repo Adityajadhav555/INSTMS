@@ -34,13 +34,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   <center>
     <h1>NIT Trichy</h1>
     <br><br>
-<<<<<<< Updated upstream
-    <button type="button" class="btn btn-primary btn-lg">Sports</button><br><br>
-    <button type="button" class="btn btn-primary btn-lg">Participating Teams</button><br><br>
-    <button type="button" class="btn btn-primary btn-lg">Register For Tournament</button><br><br>
-    <button type="button" class="btn btn-primary btn-lg">Upcoming Tournaments</button><br><br>
-    <button type="button" class="btn btn-primary btn-lg">Food And Accomdation</button>
-=======
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Sports </button>
     <br><br>
     <div>
@@ -67,7 +60,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
     </div>
     </div>
->>>>>>> Stashed changes
 
     </div>
 </center>

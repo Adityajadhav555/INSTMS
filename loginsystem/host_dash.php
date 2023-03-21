@@ -27,15 +27,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_navhost.php' ?>
-<<<<<<< Updated upstream
-    
-    <div class="container my-3">
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Welcome - <?php echo $_SESSION['username']?></h4>
-      <p>Hey how are you doing? Welcome to iSecure. You are logged in as <?php echo $_SESSION['username']?>. Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-      <hr>
-      <p class="mb-0">Whenever you need to, be sure to logout <a href="/INSTMS/loginsystem/logout.php"> using this link.</a></p>
-=======
   <container>
     <?php require 'partials/_footer.php' ?>
   </container>
@@ -69,7 +60,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
     <div class="pad"></div>
->>>>>>> Stashed changes
     </div>
   </div>
    <!-- Optional JavaScript -->

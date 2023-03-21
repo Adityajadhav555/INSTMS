@@ -27,15 +27,11 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       </li>';
       }
       if($loggedin){
-<<<<<<< Updated upstream
-      echo '<li class="nav-item">
-=======
         echo '<li class="nav-item">
         <a class="nav-link" href="/INSTMS/loginsystem/host_dash.php">Home</a>
       </li>
 
       <li class="nav-item">
->>>>>>> Stashed changes
         <a class="nav-link" href="/INSTMS/loginsystem/logout.php">Logout</a>
       </li>
       <li class="nav-item">

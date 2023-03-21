@@ -46,15 +46,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     </div>
     </center>
     <br><br>
-<<<<<<< Updated upstream
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Teams</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Register For Tournament</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Upcoming Tournaments</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Food And Accomdation</button>
-=======
     <div class="row">
     <div class="col-md-auto" padding-left=20px >
     <button  type="button" class="btn btn-primary btn-lg but" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Register Teams for Tournament</button>
@@ -86,7 +77,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <br><br>
 
 
->>>>>>> Stashed changes
 
     </div>
 
