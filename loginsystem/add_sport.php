@@ -13,14 +13,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_SESSION['username'];
     $sport = $_POST["sport"];
     $no = $_POST["no"];
-    
+
         $sql = "INSERT INTO `sports` ( `nit_name`, `sport`, `no_of_players`) VALUES ('$name', '$sport', '$no')";
         $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
         }
 }
-    
+
 ?>
 
 <!doctype html>
@@ -36,6 +36,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <title>Add Sport</title>
   </head>
   <body>
+<<<<<<< Updated upstream
     <?php require 'partials/_nav.php' ?>
     <?php
     if($showAlert){
@@ -55,12 +56,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div> ';
     }
     ?>
+=======
+    <?php require 'partials/_addsportnav.php' ?>
+    <?php require 'partials/_footer.php' ?>
+
+>>>>>>> Stashed changes
 
 
     <div class="container my-4">
      <h1 class="text-center">Add new Sport NOW</h1>
      <form action="add_sport.php" method="post">
-        
+
         <div class="form-group">
             <label for="sport">Enter Sport Name</label>
             <input type="text" class="form-control" id="sport" name="sport">
@@ -69,9 +75,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <label for="no">Enter Number of Players </label>
             <input type="number" class="form-control" id="no" name="no">
         </div>
-         
+
         <button type="submit" class="btn btn-primary">Add Sport</button>
      </form>
+     <div class="pad"></div>
     </div>
 
     <!-- Optional JavaScript -->

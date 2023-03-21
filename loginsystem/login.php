@@ -4,15 +4,15 @@ $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include 'partials/_dbconnect.php';
     $username = $_POST["username"];
-    $password = $_POST["password"]; 
-    
-     
+    $password = $_POST["password"];
+
+
     // $sql = "Select * from users where username='$username' AND password='$password'";
     $sql = "Select * from users where username='$username' AND password='$password'";
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
     if ($num == 1){
-       
+
                 $login = true;
                 session_start();
                 $_SESSION['loggedin'] = true;
@@ -29,23 +29,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 if($username == "nitt"){
                     header("location: nitt_dash.php");}
-                
+
                 if($username == "nits"){
                     header("location: nits_dash.php");}
+<<<<<<< Updated upstream
                 
             } 
+=======
+
+                if($username == "guest"){
+                    header("location: guest_dash.php");}
+
+            }
+>>>>>>> Stashed changes
             else{
-                
+
                 $showError = "Invalid Credentials";
             }
         }
-        
-  
-    
+
+
+
 ?>
 
 <!doctype html>
 <html lang="en">
+    <style>
+        body{
+            background-image: url("images/bg.jpeg");
+            background-size: cover;
+        }
+    </style>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -58,6 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <?php require 'partials/_nav.php' ?>
+    <?php require 'partials/_footer.php' ?>
     <?php
     if($login){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -77,21 +92,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     ?>
 
-    <div class="container my-4">
+    <div class="container md-2">
      <h1 class="text-center">Login to our website</h1>
      <form action="/INSTMS/loginsystem/login.php" method="post">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
-            
+        <div class="row">
+        <div class="form-group col">
+            <label for="username"></label>
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter UserName">
+
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password">
+        <div class="form-group col">
+            <label for="password"></label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password">
         </div>
-       
-         
-        <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+
+        <div class="row col">
+        <button type="submit" class="btn btn-dark">Login</button>
+        </div>
      </form>
     </div>
 

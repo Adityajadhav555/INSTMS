@@ -23,6 +23,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
+<<<<<<< Updated upstream
+=======
+  <?php require 'partials/_footer.php' ?>
+>>>>>>> Stashed changes
 
 	<table class="table table-striped">
 		<thead>
@@ -51,12 +55,17 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				echo"Showing Results for players of $name of $sport from team $team :";
 
 				// Query the database
+<<<<<<< Updated upstream
 //AND `team_name`= '$team'
         //CHANGE 3: Added A new column: team_name to the relation players...
         //Which solved 90% of the problems....
 
 
 				$sql = "SELECT * FROM `players` where `nit_name`='$name' AND `sport`= '$sport'AND `team_name`= '$team'" ;
+=======
+
+				$sql = "SELECT * FROM `players` where `nit_name`='$name' AND `sport`= '$sport' AND `team_name`= '$team'" ;
+>>>>>>> Stashed changes
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
@@ -74,7 +83,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
           }
 				} else {
-				    echo "0 results";
+          echo "<div class='alert alert-warning' role='alert'>
+					No Teams made so far
+				  </div>";
 				}
 
 				// Close the connection
@@ -87,8 +98,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
   <button type="button" class="btn btn-primary btn-lg"
   onclick= "window.location.href = '/INSTMS/loginsystem/add_player.php'">Add New Player </button>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
+  <div class="pad"></div>
 </body>
 
 

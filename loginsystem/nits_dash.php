@@ -10,6 +10,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 ?>
 <!doctype html>
 <html lang="en">
+<style>
+    body{
+  background-image: url("images/bg1.jpg");
+  background-size: cover;
+  }
+  </style>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -22,15 +28,15 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
+  <?php require 'partials/_footer.php' ?>
 
   <div>
     <center>
     <h1>NIT Surathkal</h1>
-
-    <div>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Sports </button>
     <br><br>
+<<<<<<< Updated upstream
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Teams</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Register For Tournament</button>
@@ -38,12 +44,39 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Upcoming Tournaments</button>
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Food And Accomdation</button>
+=======
+    <div>
+    <br><br>
+
+    <div class="row">
+    <div class="col-md-auto">
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Register Teams for Tournament</button>
+    </div>
+
+    <div class="col-md-auto">
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/view_tournaments.php'">Upcoming Tournaments</button>
+    </div>
+
+    <div class="col-md-auto">
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/nit_accom.php'">Food And Accomdation</button>
+    </div>
+
+    <div class="col-md-auto">
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_issue.php'">Team got rejected</button>
+    </div>
+
+    <div class="col-md-auto">
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
+    </div>
+    </div>
+>>>>>>> Stashed changes
 
     </div>
 </center>
+<div class="pad"></div>
 </div>
-    
-    
+
+
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

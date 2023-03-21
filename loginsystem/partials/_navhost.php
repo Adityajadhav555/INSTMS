@@ -1,4 +1,4 @@
-<?php 
+<?php
 if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
   $loggedin= true;
 }
@@ -14,28 +14,39 @@ echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        
+
       </li>';
 
       if(!$loggedin){
       echo '<li class="nav-item">
         <a class="nav-link" href="/INSTMS/loginsystem/login.php">Login</a>
       </li>
-    
+
       <li class="nav-item">
         <a class="nav-link" href="/INSTMS/loginsystem/signup.php">Signup</a>
       </li>';
       }
       if($loggedin){
+<<<<<<< Updated upstream
       echo '<li class="nav-item">
+=======
+        echo '<li class="nav-item">
+        <a class="nav-link" href="/INSTMS/loginsystem/host_dash.php">Home</a>
+      </li>
+
+      <li class="nav-item">
+>>>>>>> Stashed changes
         <a class="nav-link" href="/INSTMS/loginsystem/logout.php">Logout</a>
-      </li>';
+      </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/INSTMS/loginsystem/about.php">About Us</a>
+  </li>';
     }
-       
-      
+
+
     echo '</ul>
-   
-    
+
+
   </div>
 </nav>';
 ?>

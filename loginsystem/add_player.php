@@ -21,7 +21,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $age = $_POST["age"];
     $food = $_POST["food"];
     $role = $_POST["role"];
+<<<<<<< Updated upstream
 
+=======
+    if ($age < 17 || $age > 30) {
+        $showError = true;
+    }
+    else {
+>>>>>>> Stashed changes
         $sql = "INSERT INTO `players`( `nit_name`, `sport`, `team_name`,`Name`,`age`,`food`,`role`)
                                 VALUES ('$name', '$sport', '$team','$player_name','$age','$food','$role')";
 
@@ -47,7 +54,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <?php require 'partials/_nav.php' ?>
+<<<<<<< Updated upstream
 
+=======
+    <?php require 'partials/_footer.php' ?>
+    <?php
+    if($showAlert){
+    echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Success!</strong> Player Sucessfully added!!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div> ';
+    }
+    if($showError){
+    echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Invalid Age!!! Age should be between 17 to 30 </strong>'.'
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+    </div> ';
+    }
+    ?>
+>>>>>>> Stashed changes
 
     <div class="container my-4">
      <h1 class="text-center">Add new Player</h1>
@@ -79,6 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          <center>
         <button type="submit" class="btn btn-primary">Add Player</button></center>
      </form>
+     <div class="pad"></div>
     </div>
 
     <!-- Optional JavaScript -->

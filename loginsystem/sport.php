@@ -21,7 +21,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
-    
+  <?php require 'partials/_footer.php' ?>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -42,12 +43,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-              
+
 				        echo "<tr><td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
                           <td>" . $row["no_of_players"] . "</td>
                        </tr>";
-				    
+
           }
 				} else {
 				    echo "0 results";
@@ -60,12 +61,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 	</table>
 
   <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_sport.php'">Add New Sports </button>
-    
+  <div class="pad"></div>
 
 </body>
 
 
-      
+
 
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

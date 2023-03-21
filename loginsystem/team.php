@@ -21,6 +21,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
+<<<<<<< Updated upstream
+=======
+  <?php require 'partials/_footer.php' ?>
+>>>>>>> Stashed changes
 
 	<table class="table table-striped">
 		<thead>
@@ -45,6 +49,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
 
+<<<<<<< Updated upstream
 						//READ THIS:
 							//1. there was NO team_name in the relation players
 							//2. the URL parsing error has been solved
@@ -57,11 +62,18 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
 						//CHANGE 2: Passing the newly created sport and team variables in the URL
 						//CHANGE 3 in player.php... READ IT
+=======
+
+>>>>>>> Stashed changes
 				        echo "<tr>
 						  <td>" . $row["serial"] . "</td>
                           <td>" . $row["sport"] . "</td>
                           <td>" . $row["team_name"] . "</td>
+<<<<<<< Updated upstream
 						  <td> <a href= '/INSTMS/loginsystem/player.php?sport=$sport&team=$team' > Manage Players </a> </td>
+=======
+						  <td> <a href= '/INSTMS/loginsystem/player.php?sport=".$row["sport"]."&team=".$row["team_name"]."' > Manage Players </a> </td>
+>>>>>>> Stashed changes
                        </tr>";
 					   //here in this section the issue is there, we have used link to transfer varibles from
 					   //webpage team to webpage players, but ther is something which i am missing so it is causign a issue.
@@ -79,7 +91,11 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 	</table>
 
   <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/add_team.php'">Add New Team </button>
+<<<<<<< Updated upstream
 
+=======
+  <div class="pad"></div>
+>>>>>>> Stashed changes
 
 </body>
 

@@ -9,6 +9,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 ?>
 <!doctype html>
 <html lang="en">
+  <style>
+    body{
+  background-image: url("images/bg1.jpg");
+  background-size: cover;
+  }
+  </style>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -21,6 +27,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_navhost.php' ?>
+<<<<<<< Updated upstream
     
     <div class="container my-3">
     <div class="alert alert-success" role="alert">
@@ -28,6 +35,41 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
       <p>Hey how are you doing? Welcome to iSecure. You are logged in as <?php echo $_SESSION['username']?>. Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
       <hr>
       <p class="mb-0">Whenever you need to, be sure to logout <a href="/INSTMS/loginsystem/logout.php"> using this link.</a></p>
+=======
+  <container>
+    <?php require 'partials/_footer.php' ?>
+  </container>
+
+  <div>
+    <center>
+    <h1>Host Dashboard</h1>
+
+    <div>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg"
+    onclick= "window.location.href = '/INSTMS/loginsystem/declare_tour.php'">Declare Tournament</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg"
+    onclick= "window.location.href = '/INSTMS/loginsystem/reg_teams.php'">Validate Teams Registered for Tournament</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg"
+    onclick= "window.location.href = '/INSTMS/loginsystem/accomodate.php'">Food & Accomodation Management</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg"
+    onclick= "window.location.href = '/INSTMS/loginsystem/up_result.php'">Upload Results</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg"
+    onclick= "window.location.href = '/INSTMS/loginsystem/show_accom.php'">Food & Accomodation Allotment</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg"
+    onclick= "window.location.href = '/INSTMS/loginsystem/add_fixture.php'">Upload Fixture</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg"
+    onclick= "window.location.href = '/INSTMS/loginsystem/show_result.php'">View Results</button>
+    <br><br>
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
+    <div class="pad"></div>
+>>>>>>> Stashed changes
     </div>
   </div>
    <!-- Optional JavaScript -->
