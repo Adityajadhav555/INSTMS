@@ -23,10 +23,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
-<<<<<<< Updated upstream
-=======
   <?php require 'partials/_footer.php' ?>
->>>>>>> Stashed changes
 
 	<table class="table table-striped">
 		<thead>
@@ -89,10 +86,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
   <button type="button" class="btn btn-primary btn-lg"
   onclick= "window.location.href = '/INSTMS/loginsystem/add_player.php'">Add New Player </button>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
   <div class="pad"></div>
 </body>

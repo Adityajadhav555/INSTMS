@@ -63,7 +63,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+
     <title>Login</title>
+
   </head>
   <body>
     <?php require 'partials/_nav.php' ?>
@@ -88,7 +90,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     ?>
 
     <div class="container md-2">
+     <span style="color:#f6eee3">
      <h1 class="text-center">Login to our website</h1>
+     </span>
      <form action="/INSTMS/loginsystem/login.php" method="post">
         <div class="row">
         <div class="form-group col">

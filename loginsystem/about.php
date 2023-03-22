@@ -21,16 +21,18 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   <?php require 'partials/_navabout.php' ?>
   <div class="card" >
   <div class="card-body">
-    <h5 class="card-title">Project Team</h5>
-    <h6 class="card-subtitle">This project is made possible by<h6>
+    <h3 class="card-title text-center">Project Team</h3>
+    <h5 class="card-subtitle text-center">This project is made possible by<h5>
     <br>
-    <ul class="list-group list-group-flush">
+    <h6>
+    <ul class="list-group list-group-flush text-center">
         <li class="list-group-item">Aditya Nivrutti Jadhav</li>
         <li class="list-group-item">Akshay Kumar</li>
         <li class="list-group-item">Anish Kumar Yadav</li>
         <li class="list-group-item">Arastu Sharma</li>
         <li class="list-group-item">Aravind A</li>
   </ul>
+    </h6>
   </div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

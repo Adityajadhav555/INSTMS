@@ -30,7 +30,7 @@ echo '<style>
 <container>
 <div class="pad"></div>
 <div class="footer">
-    <p>Powered By NITC</p>
+    <span style="font-family:Courier">Powered By NITC</span>
     <div class="image">
     <img src="images/nitc.png" class="img-thumbnail" alt="NIT calicut" width=35px height=35px>
     </div>
