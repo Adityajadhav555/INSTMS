@@ -34,32 +34,58 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   <div>
     <center>
     <h1>Host Dashboard</h1>
-
-    <div>
     <br><br>
+    <div class="row">
+    <br><br>
+    <div class="col-4">
     <button type="button" class="btn btn-primary btn-lg"
     onclick= "window.location.href = '/INSTMS/loginsystem/declare_tour.php'">Declare Tournament</button>
-    <br><br>
+    </div>
+
+    <div class="col-3">
     <button type="button" class="btn btn-primary btn-lg"
     onclick= "window.location.href = '/INSTMS/loginsystem/reg_teams.php'">Validate Teams Registered for Tournament</button>
-    <br><br>
+    </div>
+
+    <div class="col-4">
     <button type="button" class="btn btn-primary btn-lg"
     onclick= "window.location.href = '/INSTMS/loginsystem/accomodate.php'">Food & Accomodation Management</button>
+    </div>
+    </div>
+
+    <div>
+
+
     <br><br>
+    <div class="row">
+    <div class="col-4">
     <button type="button" class="btn btn-primary btn-lg"
     onclick= "window.location.href = '/INSTMS/loginsystem/up_result.php'">Upload Results</button>
-    <br><br>
+    </div>
+
+    <div class="col-3">
     <button type="button" class="btn btn-primary btn-lg"
     onclick= "window.location.href = '/INSTMS/loginsystem/show_accom.php'">Food & Accomodation Allotment</button>
-    <br><br>
+    </div>
+
+    <div class="col-4">
     <button type="button" class="btn btn-primary btn-lg"
     onclick= "window.location.href = '/INSTMS/loginsystem/add_fixture.php'">Upload Fixture</button>
-    <br><br>
+    </div>
+
+    <div class="pad"></div>
+    </div>
+  </div>
+
+  <br><br>
+  <div class="row">
+  <div class="col-7">
     <button type="button" class="btn btn-primary btn-lg"
     onclick= "window.location.href = '/INSTMS/loginsystem/show_result.php'">View Results</button>
-    <br><br>
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>
-    <div class="pad"></div>
+    </div>
+
+    <div class="col-md-auto">
+    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/show_fixture.php'">Fixtures </button>   </div>
     </div>
   </div>
    <!-- Optional JavaScript -->

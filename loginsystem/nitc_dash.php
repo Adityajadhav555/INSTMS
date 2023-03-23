@@ -11,7 +11,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 <html lang="en">
 <style>
   body{
-  background-image: url("images/bg1.jpg");
+  background-image: url("images/logo-white.png");
   background-size: cover;
   }
   .but{
@@ -47,7 +47,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     </center>
     <br><br>
     <div class="row">
-    <div class="col-md-auto" padding-left=20px >
+    <div class="col" padding-left=20px >
     <button  type="button" class="btn btn-primary btn-lg but" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Register Teams for Tournament</button>
     </div>
 

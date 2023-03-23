@@ -40,7 +40,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <br><br>
 
     <div class="row">
-    <div class="col-md-auto">
+    <div class="col">
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Register Teams for Tournament</button>
     </div>
 
