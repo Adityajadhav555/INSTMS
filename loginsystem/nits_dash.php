@@ -37,11 +37,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/sport.php'">Sports </button>
     <br><br>
     <div>
-    <br><br>
-
+    
     <div class="row">
-    <div class="col">
-    <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Register Teams for Tournament</button>
+    <div class="col" padding-left=20px >
+    <button  type="button" class="btn btn-primary btn-lg but" onclick= "window.location.href = '/INSTMS/loginsystem/team.php'">Register Teams for Tournament</button>
     </div>
 
     <div class="col-md-auto">
@@ -61,8 +60,18 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     </div>
     </div>
 
+
+
+    <br><br>
+
+    <br><br>
+
+    <br><br>
+
+
+
     </div>
-</center>
+
 <div class="pad"></div>
 </div>
 
