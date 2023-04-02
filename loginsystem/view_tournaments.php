@@ -21,13 +21,14 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_viewtournav.php' ?>
+  <?php require 'partials/_footer.php' ?>
   <table class="table table-striped">
 		<thead>
 			<tr>
                 <th>Id</th>
 				<th>Date</th>
         <th>Last Date to Register</th>
-				<th>Tournament Name</th>				
+				<th>Tournament Name</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -47,11 +48,13 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
                           <td>" . $row["last_date"] . "</td>
                           <td>" . $row["text"] . "</td>
                        </tr>";
-				    
+
           }
 				}
                 else {
-				    echo "0 results";
+                  echo "<div class='alert alert-warning' role='alert'>
+                  No Tournaments Made So Far
+                  </div>";
 				}
 
 				// Close the connection
@@ -59,11 +62,11 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 			?>
 		</tbody>
 	</table>
-
+  <div class="pad"></div>
     </body>
 
 
-      
+
 
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $showError = "Passwords do not match";
     }
 }
-    
+
 ?>
 
 <!doctype html>
@@ -35,6 +35,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <?php require 'partials/_nav.php' ?>
+    <?php require 'partials/_footer.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -60,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
-            
+
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -71,11 +72,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="password" class="form-control" id="cpassword" name="cpassword">
             <small id="emailHelp" class="form-text text-muted">Make sure to type the same password</small>
         </div>
-         
+
         <button type="submit" class="btn btn-primary">SignUp</button>
      </form>
     </div>
-
+    <div class="pad"></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

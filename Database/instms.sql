@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 07:00 PM
+-- Generation Time: Mar 17, 2023 at 06:26 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,67 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `fixture`
---
-
-CREATE TABLE `fixture` (
-  `serial` int(11) NOT NULL,
-  `tournament` varchar(20) NOT NULL,
-  `fixture` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `fixture`
---
-
-INSERT INTO `fixture` (`serial`, `tournament`, `fixture`) VALUES
-(1, 'summer tournament', 'https://imgbox.com/LYKEvL3H');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `food_accom`
---
-
-CREATE TABLE `food_accom` (
-  `serial` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `nit_name` varchar(20) NOT NULL,
-  `accom` text NOT NULL,
-  `food` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `food_accom`
---
-
-INSERT INTO `food_accom` (`serial`, `date`, `nit_name`, `accom`, `food`) VALUES
-(0, '2023-04-24', 'nitc', 'hostel c common room', 'e mess');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `issues`
---
-
-CREATE TABLE `issues` (
-  `serial` int(11) NOT NULL,
-  `nit` varchar(20) NOT NULL,
-  `sport` varchar(20) NOT NULL,
-  `team` varchar(20) NOT NULL,
-  `issue` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `issues`
---
-
-INSERT INTO `issues` (`serial`, `nit`, `sport`, `team`, `issue`) VALUES
-(0, 'nitc', 'cricket ', 'mtech boys', 'the player aditya is underage');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `players`
 --
 
@@ -94,41 +33,33 @@ CREATE TABLE `players` (
   `age` int(11) NOT NULL,
   `food` varchar(15) NOT NULL,
   `nit_name` varchar(25) NOT NULL,
-  `sport` varchar(25) NOT NULL,
-  `role` varchar(25) NOT NULL,
-  `team_name` varchar(25) NOT NULL
+  `sport` varchar(30) NOT NULL,
+  `team_name` varchar(30) DEFAULT NULL,
+  `role` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `players`
 --
 
-INSERT INTO `players` (`serial`, `Name`, `age`, `food`, `nit_name`, `sport`, `role`, `team_name`) VALUES
-(1, 'Aditya Jadhav', 24, 'veg', 'nitc', 'cricket', 'bowler', 'alpha'),
-(2, 'ADITYA', 15, 'Non Veg', 'nitc', 'cricket ', 'cap', 'mtech boys'),
-(3, 'anish', 25, 'Veg', 'nitc', 'cricket ', 'chear girl', 'mtech boys'),
-(4, 'aravind', 24, 'Veg', 'nitt', 'cricket', 'cap', 'mtech girls');
+INSERT INTO `players` (`serial`, `Name`, `age`, `food`, `nit_name`, `sport`, `team_name`, `role`) VALUES
+(1, 'Sashank', 23, 'Non Veg', 'nitc', 'cricket', 'alpha', 'Captain'),
+(2, 'Sushal', 21, 'Non Veg', 'nitc', 'ss', 'ss', 'Defence');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `result`
+-- Table structure for table `results`
 --
 
-CREATE TABLE `result` (
+CREATE TABLE `results` (
   `serial` int(11) NOT NULL,
-  `sport` varchar(20) NOT NULL,
-  `winner` varchar(30) NOT NULL,
-  `second` varchar(30) NOT NULL,
-  `third` varchar(30) NOT NULL
+  `name_of_sport` varchar(25) NOT NULL,
+  `nit` varchar(20) NOT NULL,
+  `team` varchar(25) NOT NULL,
+  `rank` int(11) NOT NULL,
+  `place` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `result`
---
-
-INSERT INTO `result` (`serial`, `sport`, `winner`, `second`, `third`) VALUES
-(0, 'cricket', 'nitc, mtech boys', 'nits, btech ', 'nitt, team alpha');
 
 -- --------------------------------------------------------
 
@@ -152,7 +83,8 @@ INSERT INTO `sports` (`serial`, `nit_name`, `sport`, `no_of_players`) VALUES
 (4, 'nitc', 'Swimming', 1),
 (5, 'nits', 'cricket', 12),
 (6, 'nitc', 'Badmintan solo', 1),
-(7, 'nitc', 'badminatan duo', 2);
+(7, 'nitc', 'badminatan duo', 2),
+(8, 'nitc', 'swimming', 1);
 
 -- --------------------------------------------------------
 
@@ -173,9 +105,7 @@ CREATE TABLE `teams` (
 
 INSERT INTO `teams` (`serial`, `nit_name`, `sport`, `team_name`) VALUES
 (1, 'nitc', 'cricket', 'Alpha'),
-(2, 'nitc', 'cricket', 'beta'),
-(3, 'nitc', 'cricket ', 'mtech boys'),
-(4, 'nitt', 'cricket', 'mtech girls');
+(2, 'nitc', 'ss', 'ss');
 
 -- --------------------------------------------------------
 
@@ -208,29 +138,6 @@ CREATE TABLE `tournaments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tournment_declare`
---
-
-CREATE TABLE `tournment_declare` (
-  `sno` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `text` text NOT NULL,
-  `last_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tournment_declare`
---
-
-INSERT INTO `tournment_declare` (`sno`, `date`, `text`, `last_date`) VALUES
-(0, '2023-04-25', 'cricket tournamnet inter nit summer championship', '2023-04-15'),
-(0, '2023-03-30', 'Super 4 Tournament', '2023-03-22'),
-(0, '0000-00-00', 'https://imgbox.com/LYKEvL3H', '0000-00-00'),
-(0, '0000-00-00', 'https://imgbox.com/LYKEvL3H', '0000-00-00');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -257,12 +164,6 @@ INSERT INTO `users` (`sno`, `username`, `password`, `dt`) VALUES
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `fixture`
---
-ALTER TABLE `fixture`
-  ADD PRIMARY KEY (`serial`);
 
 --
 -- Indexes for table `players`
@@ -294,28 +195,22 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `fixture`
---
-ALTER TABLE `fixture`
-  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sports`
 --
 ALTER TABLE `sports`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `serial` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -1,6 +1,4 @@
-
 <?php
-
 session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
@@ -21,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $showAlert = true;
         }
     }
-    
+
 
 
 ?>
@@ -41,6 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   </head>
   <body>
     <?php require 'partials/_navhost.php' ?>
+    <?php require 'partials/_footer.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -77,10 +76,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         <label for="tournamentDate">Enter the Last date to Register for tournament</label>
          <input type="date" id="last_date" name="last_date" class="form-control">
      </div>
-         
+
         <button type="submit" class="btn btn-primary">Declare</button>
      </form>
      </div>
+     <div class="pad"></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

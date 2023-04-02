@@ -1,8 +1,8 @@
 <?php
 $server = "localhost";
-$username = "root";
-$password = "";
-$database = "instms";
+$username = "id20496829_instmsnitc";
+$password = "wT]pjA4ROQaY32*k";
+$database = "id20496829_instms";
 
 $conn = mysqli_connect($server, $username, $password, $database);
 if (!$conn){

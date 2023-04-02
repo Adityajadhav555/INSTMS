@@ -12,7 +12,7 @@ $showAlert = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include 'partials/_dbconnect.php';
-    
+
     $name = $_SESSION['username'];
     $sport = $_POST["sport"];
     $team = $_POST["team"];
@@ -40,6 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   </head>
   <body>
     <?php require 'partials/_addteamnav.php' ?>
+    <?php require 'partials/_footer.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -75,6 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <button type="submit" class="btn btn-primary">Add Team</button>
      </form>
     </div>
+    <div class="pad"></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

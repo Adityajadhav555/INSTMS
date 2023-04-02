@@ -23,17 +23,18 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
-    
-	
-    
-   
-			<?php     
+  <?php require 'partials/_footer.php' ?>
+
+
+
+
+			<?php
 				include 'partials/_dbconnect.php';
-               
-        
-        
+
+
+
 				// Query the database
-      
+
 				$sql = "SELECT * FROM `players`" ;
 				$result = mysqli_query($conn, $sql);
                 $veg = 0;
@@ -42,9 +43,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
-           
+
 				    while($row = mysqli_fetch_assoc($result)) {
-              
+
   			          if(strcmp($row["food"],"Veg"))
                       {
                         $veg ++;
@@ -60,8 +61,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
                       $vegan ++;
                       echo $row["Name"];
                       }
-                        
-				    
+
+
           }
 				} else {
 				    echo "0 results";
@@ -69,27 +70,27 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
 				// Close the connection
 				mysqli_close($conn);
-                
-                
+
+
                 echo "Total Veg Players     : $veg";
                 echo "Total Non Veg Players : $non";
                 echo "Total Vegan Players   : $vegan";
-                
+
 			?>
-    
-            
-    
+
+
+<div class="pad"></div>
 
 </body>
 
 
-      
+
 
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+
   </body>
 </html>

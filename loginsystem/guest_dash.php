@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
@@ -9,6 +8,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 ?>
 <!doctype html>
 <html lang="en">
+    <style>
+    body{
+  background-image: url("images/bg1.jpg");
+  background-size: cover;
+  }
+  </style>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -21,6 +26,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
+  <?php require 'partials/_footer.php' ?>
 
   <div>
     <center>
@@ -28,9 +34,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 
     <div>
     <br><br>
-    
+
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/guest_reg_teams.php'">Registered Teams</button>
-    
+
     <br><br>
     <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/view_tournaments.php'">Upcoming Tournaments</button>
     <br><br>
@@ -41,8 +47,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
     </div>
 </center>
 </div>
-    
-    
+<div class="pad"></div>
+
+
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

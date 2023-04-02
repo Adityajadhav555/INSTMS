@@ -1,6 +1,4 @@
-
 <?php
-
 session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
@@ -22,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $showAlert = true;
         }
     }
-    
+
 
 
 ?>
@@ -42,6 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   </head>
   <body>
     <?php require 'partials/_navhost.php' ?>
+    <?php require 'partials/_footer.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -61,20 +60,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
     ?>
 
-    
+
     <div class="container my-4">
      <h1 class="text-center">Raise Issue</h1>
      <form action="issue.php" method="post">
-     
+
        <div class="form-group">
          <label for="text">Enter the Issue in Details Why Team had been rejected</label>
          <textarea class="form-control" id="text" name="text" rows="3"></textarea>
       </div>
 
-      
-         
+
+
         <button type="submit" class="btn btn-primary">Submit</button>
      </form>
+     <div class="pad"></div>
      </div>
 
     <!-- Optional JavaScript -->
