@@ -1,6 +1,4 @@
-
 <?php
-
 session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
@@ -13,16 +11,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     include 'partials/_dbconnect.php';
     $sport = $_POST["sport"];
-    $winner= $_POST["winner"];
-    $second = $_POST["second"];
-    $third= $_POST["third"];
-    $sql = "INSERT INTO `result` ( `sport`, `winner`,`second`,`third`) VALUES ('$sport','$winner','$second','$third')";
+    $nit_name= $_POST["nit_name"];
+    $team_name = $_POST["team_name"];
+    
+    $sql = "INSERT INTO `result` (`sport`, `nit_name`,`team_name`) VALUES ('$sport','$nit_name','$team_name')";
     $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
         }
     }
-    
+
 
 
 ?>
@@ -42,6 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   </head>
   <body>
     <?php require 'partials/_navhost.php' ?>
+    <?php require 'partials/_footer.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -69,29 +68,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         <label for="sport">Enter the sport name</label>
          <input type="text" id="sport" name="sport" class="form-control">
      </div>
-     
+
      <div class="form-group">
-        <label for="winner">Enter Winner nit name along with Team name :</label>
-         <input type="text" id="winner" name="winner" class="form-control">
+        <label for="nit_name">Enter Winner nit name :</label>
+         <input type="text" id="nit_name" name="nit_name" class="form-control">
      </div>
 
      <div class="form-group">
-        <label for="second">Enter Runner up nit name along with Team name :</label>
-         <input type="text" id="second" name="second" class="form-control">
-     </div>
-
-     <div class="form-group">
-        <label for="third">Enter Second Runner up nit name along with Team name :</label>
-         <input type="text" id="third" name="third" class="form-control">
+        <label for="team_name">Enter Winner Team name :</label>
+         <input type="text" id="team_name" name="team_name" class="form-control">
      </div>
 
      
-     
-         
-        <button type="submit" class="btn btn-primary">SUBMIT</button>
+
+        <button type="submit" class="btn btn-primary">Declare Result</button>
      </form>
      </div>
-
+     <div class="pad"></div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

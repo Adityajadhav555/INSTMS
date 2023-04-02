@@ -23,7 +23,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
-    
+  <?php require 'partials/_footer.php' ?>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -32,34 +33,37 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				<th>Age</th>
         <th>Veg/NonVeg</th>
         <th>Role in Team</th>
-                
+
 			</tr>
 		</thead>
 		<tbody>
 
-    
-   
-			<?php     
+
+
+			<?php
 				include 'partials/_dbconnect.php';
-        
+
         $name = $_GET['nit'];
         $sport = $_GET['sport'];
 		    $team = $_GET['team'];
         $_SESSION['sport'] = $sport;
         $_SESSION['team'] = $team;
         $_SESSION['nit']= $name;
-        		echo"Showing Registered players of $name of $sport from team $team :";
-        
+        	//	echo"Showing Registered players of $name of $sport from team $team :";
+        		echo"<div class='alert alert-success' role='alert'>
+        Showing Results for players of $name of $sport from team $team :
+        </div>";
+
 				// Query the database
-      
+
 				$sql = "SELECT * FROM `players` where `nit_name`='$name' AND `sport`= '$sport' AND `team_name`= '$team'" ;
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
-           
+
 				    while($row = mysqli_fetch_assoc($result)) {
-              
+
   			        echo "<tr>
                           <td>" . $row["serial"] . "</td>
                           <td>" . $row["Name"] . "</td>
@@ -67,32 +71,34 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
                           <td>" . $row["food"] . "</td>
                           <td>" . $row["role"] . "</td>
                        </tr>";
-				    
+
           }
 				} else {
-				    echo "0 results";
+          echo "<div class='alert alert-warning' role='alert'>
+					No Players Added So Far
+				  </div>";
 				}
         // Close the connection
 				mysqli_close($conn);
        ?>
-    
-    
-		
+
+
+
 
 	</table>
 
   <button type="button" class="btn btn-primary btn-lg" onclick= "window.location.href = '/INSTMS/loginsystem/issue.php'">Raise Issue Regarding Team</button>
-  
+  <div class="pad"></div>
 </body>
 
 
-      
+
 
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+
   </body>
 </html>

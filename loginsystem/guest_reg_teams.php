@@ -21,7 +21,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   </head>
   <body>
   <?php require 'partials/_nav.php' ?>
-    
+  <?php require 'partials/_footer.php' ?>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -39,20 +40,20 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 				// Query the database
 				$name = $_SESSION['username'];
 				$sql = "SELECT * FROM `teams`";
-				
+
 				$result = mysqli_query($conn, $sql);
 
 				// Loop through the results and output the data in the table
 				if (mysqli_num_rows($result) > 0 ) {
 				    while($row = mysqli_fetch_assoc($result)) {
-						
-						  
+
+
 				        echo "<tr>
 						  <td>" . $row["serial"] . "</td>
                           <td>" . $row["nit_name"] . "</td>
                           <td>" . $row["sport"] . "</td>
-                          <td>" . $row["team_name"] . "</td> 	 
-						  <td> <a href= '/INSTMS/loginsystem/guest_reg_players.php?nit=".$row["nit_name"]."&sport=".$row["sport"]."&team=".$row["team_name"]."' > Players </a> </td> 
+                          <td>" . $row["team_name"] . "</td>
+						  <td> <a href= '/INSTMS/loginsystem/guest_reg_players.php?nit=".$row["nit_name"]."&sport=".$row["sport"]."&team=".$row["team_name"]."' > Players </a> </td>
                        </tr>";
 					   //here in this section the issue is there, we have used link to transfer varibles from
 					   //webpage team to webpage players, but ther is something which i am missing so it is causign a issue.
@@ -68,13 +69,13 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
 			?>
 		</tbody>
 	</table>
+	<div class="pad"></div>
 
-    
 
 </body>
 
 
-      
+
 
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

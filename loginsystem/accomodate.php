@@ -1,6 +1,4 @@
-
 <?php
-
 session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
@@ -22,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             $showAlert = true;
         }
     }
-    
+
 
 
 ?>
@@ -42,6 +40,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   </head>
   <body>
     <?php require 'partials/_navhost.php' ?>
+    <?php require 'partials/_footer.php' ?>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -84,9 +83,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
          <label for="text">Enter the details of Food Management</label>
          <textarea class="form-control" id="food" name="food" rows="2"></textarea>
       </div>
-         
+
         <button type="submit" class="btn btn-primary">SUBMIT</button>
      </form>
+     <div class="pad"></div>
      </div>
 
     <!-- Optional JavaScript -->

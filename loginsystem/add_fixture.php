@@ -1,6 +1,4 @@
-
 <?php
-
 session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
@@ -14,14 +12,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     include 'partials/_dbconnect.php';
     $tournament = $_POST["tournament"];
     $link= $_POST["link"];
-    
+
     $sql = "INSERT INTO `fixture` ( `tournament`, `fixture`) VALUES ('$tournament', '$link')";
     $result = mysqli_query($conn, $sql);
         if ($result){
             $showAlert = true;
         }
     }
-    
+
 
 
 ?>
@@ -41,6 +39,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
   </head>
   <body>
     <?php require 'partials/_navhost.php' ?>
+    <container>
+    <?php require 'partials/_footer.php' ?>
+    </container>
     <?php
     if($showAlert){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -80,18 +81,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
      <center>
      <div>
         <h3>
-            
-                 <button type="button" class="btn btn-primary btn-lg" 
+
+                 <button type="button" class="btn btn-primary btn-lg"
                     onclick= "window.location.href = 'https://imgbox.com/'">Upload Image </button>
-    
-                 <button type="button" class="btn btn-primary btn-lg" 
+
+                 <button type="button" class="btn btn-primary btn-lg"
                  onclick= "window.location.href = 'https://pdfhost.io/'">Upload PDF </button>
-    
+
 
         </h3>
+
     </div>
+    <div class="pad"></div>
     </center>
-         
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
